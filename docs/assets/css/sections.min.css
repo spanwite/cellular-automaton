@@ -1,1 +1,54 @@
-.main__group .buttons-row{margin-left:30px}.statistics{margin-left:30px}.statistics-item{margin:10px 0}.statistics-item__text{font-size:16px;letter-spacing:.1em}.statistics-item__value{font-weight:700;position:relative;top:1px;letter-spacing:.1em}.statistics-item__value_born{left:2px;color:var(--born-text-color);text-shadow:0 0 15px rgba(101,227,99,.5)}.statistics-item__value_died{left:2.5px;color:var(--died-text-color);text-shadow:0 0 15px rgba(227,99,99,.5)}.statistics-item__value_alive{color:var(--alive-text-color);text-shadow:0 0 15px rgba(99,227,221,.5)}.configs>*{margin-top:16px;padding-left:30px}.configs__group-title{margin-bottom:5px}.configs__group .buttons-row button{font-size:16px;padding:4px 16px;letter-spacing:.3em}.configs__group .buttons-row button:hover{letter-spacing:.8em}
+/* Main */
+.main__group .buttons-row {
+  margin-left: 30px;
+}
+
+/* Info */
+.statistics {
+  margin-left: 30px;
+}
+.statistics-item {
+  margin: 10px 0;
+}
+.statistics-item__text {
+  font-size: 16px;
+  letter-spacing: 0.1em;
+}
+.statistics-item__value {
+  font-weight: bold;
+  position: relative;
+  top: 1px;
+  letter-spacing: 0.1em;
+}
+.statistics-item__value_born {
+  left: 2px;
+  color: var(--born-text-color);
+  text-shadow: 0 0 15px rgba(101, 227, 99, 0.5);
+}
+.statistics-item__value_died {
+  left: 2.5px;
+  color: var(--died-text-color);
+  text-shadow: 0 0 15px rgba(227, 99, 99, 0.5);
+}
+.statistics-item__value_alive {
+  color: var(--alive-text-color);
+  text-shadow: 0 0 15px rgba(99, 227, 221, 0.5);
+}
+
+/* Generation */
+.configs > * {
+  margin-top: 16px;
+  padding-left: 30px;
+}
+
+.configs__group-title {
+  margin-bottom: 5px;
+}
+.configs__group button {
+  font-size: 16px;
+  padding: 4px 16px;
+  letter-spacing: 0.3em;
+}
+.configs__group button:hover {
+  letter-spacing: 0.6em;
+}
