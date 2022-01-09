@@ -3,17 +3,19 @@ import {Position} from "./position";
 
 import {style} from "./style";
 
+import {Screen} from "./types";
+
 export class Canvas {
 	private readonly element: HTMLCanvasElement;
 	private readonly context: CanvasRenderingContext2D;
 
-	private readonly size: Size;
+	private size: Size;
 
 	constructor() {
 		this.element = document.getElementById("canvas") as HTMLCanvasElement;
 		this.context = this.element.getContext('2d') as CanvasRenderingContext2D;
 
-		this.size = new Size(window.innerWidth, window.innerHeight);
+		this.size = new Size(window.innerWidth, window.innerHeight / 1.5);
 
 		this.Resize();
 	}
@@ -26,7 +28,16 @@ export class Canvas {
 		this.context.clearRect(0, 0, this.size?.Width ?? 0, this.size?.Height ?? 0);
 	}
 
-	public Resize(): void {
+	public Resize(size?: Screen): void {
+		if (size === 'full') {
+			this.size = new Size(window.innerWidth, window.innerHeight);
+		} else if (size === 'half') {
+			this.size = new Size(
+				window.innerWidth,
+				window.innerHeight / 1.5
+			);
+		}
+
 		this.element.width = this.size.Width;
 		this.element.height = this.size.Height;
 	}

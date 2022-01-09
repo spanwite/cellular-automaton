@@ -21,6 +21,8 @@ export class JQueryEvents {
 	private $buttonStart: JQuery = $('.main__group-button_start');
 	private $buttonClear: JQuery = $('.main__group-button_clear');
 	private $buttonTheme: JQuery = $('.main__group-button_theme');
+	private $buttonFullscreen: JQuery = $('.area-size__button_fullscreen');
+	private $buttonHalfscreen: JQuery = $('.area-size__button_halfscreen');
 	private $buttonSave: JQuery = $('.configs__group-button_save');
 	private $buttonLoad: JQuery = $('.configs__group-button_load');
 	private $buttonRandom: JQuery = $('.configs__group-button_random');
@@ -91,6 +93,26 @@ export class JQueryEvents {
 
 	private buttonRandomOnClick = () => {
 		this.area.RandomizeUnits();
+	}
+
+	private buttonFullscreenOnClick = () => {
+		const {area, canvas} = this;
+
+		canvas.Resize('full');
+		area.Resize();
+
+		area.ResetStatistics();
+		area.UpdateStatistics();
+	}
+
+	private buttonHalfscreenOnClick = () => {
+		const {area, canvas} = this;
+
+		canvas.Resize('half');
+		area.Resize();
+
+		area.ResetStatistics();
+		area.UpdateStatistics();
 	}
 
 	private sliderAppStepsOnInput = () => {
@@ -422,6 +444,8 @@ export class JQueryEvents {
 			this.$buttonStart.on('click', this.buttonStartOnClick);
 			this.$buttonClear.on('click', this.buttonClearOnClick);
 			this.$buttonTheme.on('click', this.buttonThemeOnClick);
+			this.$buttonFullscreen.on('click', this.buttonFullscreenOnClick);
+			this.$buttonHalfscreen.on('click', this.buttonHalfscreenOnClick);
 			this.$buttonSave.on('click', this.buttonSaveOnClick);
 			this.$buttonLoad.on('click', this.buttonLoadOnClick);
 

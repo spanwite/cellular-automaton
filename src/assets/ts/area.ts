@@ -6,7 +6,7 @@ import {Canvas} from "./canvas";
 
 import {style} from "./style";
 
-export type Align = 'top' | 'right' | 'bot' | 'left';
+import {Align, Screen} from "./types";
 
 export class Area {
 	private readonly canvas: Canvas;

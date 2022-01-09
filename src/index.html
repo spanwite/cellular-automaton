@@ -18,20 +18,22 @@ title: Cellular Automaton
             </div>
 
             <div class="section__body">
-                <div class="main__group main__group_app">
-                    <h3 class="main__group-title">App:</h3>
+                <div class="main">
+                    <div class="main__group main__group_app">
+                        <h3 class="main__group-title">App:</h3>
 
-                    <div class="buttons-row">
-                        <button class="main__group-button main__group-button_start">start</button>
-                        <button class="main__group-button main__group-button_clear">clear</button>
+                        <div class="buttons-row">
+                            <button class="main__group-button main__group-button_start">start</button>
+                            <button class="main__group-button main__group-button_clear">clear</button>
+                        </div>
                     </div>
-                </div>
 
-                <div class="main__group main__group_theme">
-                    <h3 class="main__group-title">Theme:</h3>
+                    <div class="main__group main__group_theme">
+                        <h3 class="main__group-title">Theme:</h3>
 
-                    <div class="buttons-row">
-                        <button class="main__group-button main__group-button_theme"></button>
+                        <div class="buttons-row">
+                            <button class="main__group-button main__group-button_theme"></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,8 +76,8 @@ title: Cellular Automaton
             </div>
 
             <div class="section__body">
-                <div class="cell-size">
-                    <h3 class="section__subtitle">Cell:</h3>
+                <div class="section__group section__group_cell-size">
+                    <h3 class="group__title">Cell:</h3>
 
                     <div class="cell-size__inputs cell-size__inputs_cell">
                         <label class="input-range input-range_size">
@@ -95,6 +97,15 @@ title: Cellular Automaton
                                    type="range" min="0" max="10" value="1">
                             <span class="input-range__value input-range_margin__value">1</span>
                         </label>
+                    </div>
+                </div>
+
+                <div class="section__group section__group_area-size">
+                    <h3 class="group__title">Area:</h3>
+
+                    <div class="buttons-row">
+                        <button class="area-size__button_fullscreen">fullscreen</button>
+                        <button class="area-size__button_halfscreen">halfscreen</button>
                     </div>
                 </div>
             </div>
