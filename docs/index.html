@@ -17,7 +17,7 @@
 </head>
 <body data-theme="dark">
 
-    <div class="canvas-wrapper">
+    <div class="canvas-wrapper" xmlns="http://www.w3.org/1999/html">
         <canvas id="canvas"></canvas>
     </div>
     
@@ -91,26 +91,26 @@
                 </div>
     
                 <div class="section__body">
-                    <div class="section__group section__group_cell-size">
+                    <div class="section__group section__group_cell">
                         <h3 class="group__title">Cell:</h3>
     
-                        <div class="cell-size__inputs cell-size__inputs_cell">
+                        <div class="group__input group__input_cell">
                             <label class="input-range input-range_size">
-                                <span class="input-range__label input-range_size__label">size</span>
+                                <span class="input-range__label">size</span>
                                 <br>
-                                <input class="input-range__input input-range_size__input"
+                                <input class="input-range__input input-range_cell-size__input"
                                        type="range" min="1" max="30" value="20">
-                                <span class="input-range__value input-range_size__value">20</span>
+                                <span class="input-range__value input-range_cell-size__value">20</span>
                             </label>
+                        </div>
     
-                            <br>
-    
+                        <div class="group__input group__input_cell">
                             <label class="input-range input-range_margin">
-                                <span class="input-range__label input-range_margin__label">margin</span>
+                                <span class="input-range__label">margin</span>
                                 <br>
-                                <input class="input-range__input input-range_margin__input"
+                                <input class="input-range__input input-range_cell-margin__input"
                                        type="range" min="0" max="10" value="1">
-                                <span class="input-range__value input-range_margin__value">1</span>
+                                <span class="input-range__value input-range_cell-margin__value">1</span>
                             </label>
                         </div>
                     </div>
@@ -184,10 +184,10 @@
                 </div>
     
                 <div class="section__body">
-                    <h3 class="section__subtitle">App:</h3>
+                    <div class="section__group section__group_app">
+                        <h3 class="group__title">App:</h3>
     
-                    <div class="other__app">
-                        <div class="other__input">
+                        <div class="group__input group__input_range">
                             <label class="input-range">
                                 <span class="input-range__label">steps/second</span>
                                 <br>
@@ -198,16 +198,25 @@
                         </div>
                     </div>
     
-                    <h3 class="section__subtitle">Area:</h3>
+                    <div class="section__group section__group_area">
+                        <h3 class="group__title">Area:</h3>
     
-                    <div class="other__area">
-                        <div class="other__checkbox">
+                        <div class="group__input group__input_checkbox">
                             <label class="input-checkbox">
                                 <input class="input-checkbox__input input-checkbox_space__input"
                                        type="checkbox">
                                 <span class="input-checkbox__slider"></span>
                             </label>
                             <span class="checkbox__text">looping space</span>
+                        </div>
+    
+                        <div class="group__input group__input_checkbox">
+                            <label class="input-checkbox">
+                                <input class="input-checkbox__input input-checkbox_rainbow__input"
+                                       type="checkbox">
+                                <span class="input-checkbox__slider"></span>
+                            </label>
+                            <span class="checkbox__text">rainbow units</span>
                         </div>
                     </div>
                 </div>

@@ -11,6 +11,8 @@ export class Canvas {
 
 	private size: Size;
 
+	private rainbowUnits: boolean = false;
+
 	constructor() {
 		this.element = document.getElementById("canvas") as HTMLCanvasElement;
 		this.context = this.element.getContext('2d') as CanvasRenderingContext2D;
@@ -18,6 +20,10 @@ export class Canvas {
 		this.size = new Size(window.innerWidth, window.innerHeight / 1.5);
 
 		this.Resize();
+	}
+
+	public set RainbowUnits(value: boolean) {
+		this.rainbowUnits = value;
 	}
 
 	public get Size(): Size {
@@ -63,7 +69,20 @@ export class Canvas {
 	}
 
 	public DrawUnit({X, Y}: Position): void {
-		this.context.fillStyle = style.unit.color;
+		if (!this.rainbowUnits) {
+			this.context.fillStyle = style.unit.color;
+		} else {
+			const colors: string[] = [
+				'#D268F8FF', '#D268F8FF', '#F868B2FF',
+				'#F868B2FF', '#F88A68FF', '#F88A68FF',
+				'#F8F568FF', '#F8F568FF', '#8EF868FF',
+				'#8EF868FF', '#68F8AEFF', '#68F8AEFF',
+				'#68D6F8FF', '#68D6F8FF', '#686AF8FF', '#686AF8FF'
+			];
+
+			const randomIndex: number = Math.floor(Math.random() * colors.length);
+			this.context.fillStyle = colors[randomIndex];
+		}
 
 		this.context.fillRect(
 			X * (style.cell.size + style.cell.margin),

@@ -101,8 +101,6 @@ input[type=range] {
 }
 
 .input-range {
-	position: relative;
-	left: 30px;
 
 	&__value {
 		position: relative;
@@ -203,3 +201,11 @@ input[type=range] {
 	letter-spacing: 0.1em;
 }
 
+/* Group */
+.group__input {
+	padding-left: 30px;
+}
+
+.group__input_checkbox {
+	margin-bottom: 12px;
+}

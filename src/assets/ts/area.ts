@@ -256,12 +256,12 @@ export class Area {
 
 	public Draw(): void {
 		for (const unit of this.aliveUnits) {
-			this.cells[unit.Y][unit.X] = true;
 			this.canvas.DrawUnit(unit);
+			this.cells[unit.Y][unit.X] = true;
 		}
 		for (const unit of this.bornUnits) {
-			this.cells[unit.Y][unit.X] = true;
 			this.canvas.DrawUnit(unit);
+			this.cells[unit.Y][unit.X] = true;
 		}
 		for (const unit of this.diedUnits) {
 			this.canvas.ClearUnit(unit);

@@ -28,14 +28,15 @@ export class JQueryEvents {
 	private $buttonRandom: JQuery = $('.configs__group-button_random');
 
 	private $sliderAppSteps: JQuery = $('.input-range_steps__input');
-	private $sliderCellSize: JQuery = $('.input-range_size__input');
-	private $sliderCellMargin: JQuery = $('.input-range_margin__input');
+	private $sliderCellSize: JQuery = $('.input-range_cell-size__input');
+	private $sliderCellMargin: JQuery = $('.input-range_cell-margin__input');
 
 	private $valueAppSteps: JQuery = $('.input-range_steps__value');
-	private $valueCellSize: JQuery = $('.input-range_size__value');
-	private $valueCellMargin: JQuery = $('.input-range_margin__value');
+	private $valueCellSize: JQuery = $('.input-range_cell-size__value');
+	private $valueCellMargin: JQuery = $('.input-range_cell-margin__value');
 
-	private $checkboxSpace: JQuery = $('.input-checkbox__input');
+	private $checkboxSpace: JQuery = $('.input-checkbox_space__input');
+	private $checkboxRainbowUnits: JQuery = $('.input-checkbox_rainbow__input');
 
 	constructor(
 		private readonly app: App
@@ -219,6 +220,10 @@ export class JQueryEvents {
 
 	private checkboxSpaceOnClick = () => {
 		this.area.LoopingSpace = this.$checkboxSpace.is(':checked');
+	}
+
+	private checkboxRainbowUnitsOnClick = () => {
+		this.canvas.RainbowUnits = this.$checkboxRainbowUnits.is(':checked');
 	}
 
 	private initPresets(): void {
@@ -459,6 +464,7 @@ export class JQueryEvents {
 			this.$sliderCellMargin.on('input', this.sliderCellMarginOnInput);
 
 			this.$checkboxSpace.on('click', this.checkboxSpaceOnClick);
+			this.$checkboxRainbowUnits.on('click', this.checkboxRainbowUnitsOnClick);
 
 			this.$canvas.on('mousedown', this.canvasOnMouseDown);
 			this.$canvas.on('mousemove', this.canvasOnMouseMove);
