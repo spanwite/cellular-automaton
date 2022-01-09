@@ -5,9 +5,28 @@
 
 		&:hover {
 			box-shadow: none;
-			letter-spacing: .5em;
 		}
 	}
+
+	.section {
+
+		&_main {
+
+			button:hover {
+				letter-spacing: .5em;
+			}
+		}
+
+	}
+
+	.configs {
+
+		button:hover {
+			letter-spacing: .3em;
+		}
+	}
+
+
 }
 
 @media (max-width: 408px) {
@@ -15,19 +34,6 @@
 	input[type=range] {
 		width: 250px;
 	}
-
-	.section_main {
-
-		button {
-			letter-spacing: .3em;
-
-			&:hover {
-				box-shadow: none;
-				letter-spacing: .3em;
-			}
-		}
-	}
-
 
 }
 
@@ -37,12 +43,6 @@
 
 		button {
 			padding: 6px 30px;
-			letter-spacing: .3em;
-
-			&:hover {
-				box-shadow: none;
-				letter-spacing: .3em;
-			}
 		}
 	}
 }
