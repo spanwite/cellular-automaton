@@ -13,7 +13,6 @@ const sass = require('gulp-sass')(require('sass'));
 const removeComments = require('gulp-strip-css-comments');
 const cleanCSS = require('gulp-clean-css');
 
-/* Paths */
 const srcPath = './src/';
 const distPath = './docs/';
 
@@ -29,7 +28,7 @@ const path = {
 	src: {
 		html: srcPath + '*.html',
 		js: srcPath + 'assets/ts/*.ts',
-		css: srcPath + 'assets/scss/*.scss',
+		css: srcPath + 'assets/scss/style.scss',
 		images: srcPath + 'assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}',
 		fonts: srcPath + 'assets/fonts/**/*.{eot,woff,woff2,ttf,svg}',
 		media: srcPath + 'assets/media/**/*.{mp3,mp4,wav,mov,avi}',
