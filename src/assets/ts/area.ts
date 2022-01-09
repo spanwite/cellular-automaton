@@ -224,86 +224,33 @@ export class Area {
 			Math.floor((this.size.Height - unitMax.Y - unitMin.Y) / 2)
 		);
 
-		switch (align) {
-			case 'left': {
-				alignOffset.X = this.size.Width - (this.size.Width + unitMin.X);
+		if (align === 'left') {
+			alignOffset.X = this.size.Width - (this.size.Width + unitMin.X);
+		} else if (align === 'right') {
+			alignOffset.X = this.size.Width - unitMax.X - 1;
+		} else if (align === 'bot') {
+			alignOffset.Y = this.size.Height - unitMax.Y - 1;
+		} else if (align === 'top') {
+			alignOffset.Y = this.size.Height - (this.size.Height + unitMin.Y);
+		}
 
-				for (let unit of units) {
-					unit.X += alignOffset.X;
-					unit.Y += alignOffset.Y;
+		alignOffset.X += offset?.X ?? 0;
+		alignOffset.Y += offset?.Y ?? 0;
 
-					if (unit.X > this.size.Width || unit.Y > this.size.Height) {
-						continue;
-					}
+		for (let unit of units) {
+			unit.X += alignOffset.X;
+			unit.Y += alignOffset.Y;
 
-					this.AddUnit(unit);
-				}
+			if (
+				unit.X > this.size.Width 	||
+				unit.Y > this.size.Height 	||
+				unit.X < 0 					||
+				unit.Y < 0
+			) {
+				continue;
 			}
-				break;
 
-			case 'right': {
-				alignOffset.X = this.size.Width - unitMax.X - 1;
-
-				for (let unit of units) {
-					unit.X += alignOffset.X;
-					unit.Y += alignOffset.Y;
-
-					if (unit.X > this.size.Width || unit.Y > this.size.Height) {
-						continue;
-					}
-
-					this.AddUnit(unit);
-				}
-			}
-				break;
-
-			case 'bot': {
-				alignOffset.X += offset?.X ?? 0;
-				alignOffset.Y = this.size.Height - unitMax.Y - 1 + (offset?.Y ?? 0);
-
-				for (let unit of units) {
-					unit.X += alignOffset.X;
-					unit.Y += alignOffset.Y;
-
-					if (unit.X > this.size.Width || unit.Y > this.size.Height) {
-						continue;
-					}
-
-					this.AddUnit(unit);
-				}
-			}
-				break;
-
-			case 'top': {
-				alignOffset.X += offset?.X ?? 0;
-				alignOffset.Y = this.size.Height - (this.size.Height + unitMin.Y) + (offset?.X ?? 0);
-
-				for (let unit of units) {
-					unit.X += alignOffset.X;
-					unit.Y += alignOffset.Y;
-
-					if (unit.X > this.size.Width || unit.Y > this.size.Height) {
-						continue;
-					}
-
-					this.AddUnit(unit);
-				}
-			}
-				break;
-
-			default: {
-				for (let unit of units) {
-					unit.X += alignOffset.X;
-					unit.Y += alignOffset.Y;
-
-					if (unit.X > this.size.Width || unit.Y > this.size.Height) {
-						continue;
-					}
-
-					this.AddUnit(unit);
-				}
-			}
-				break;
+			this.AddUnit(unit);
 		}
 	}
 
