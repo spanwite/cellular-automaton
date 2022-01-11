@@ -194,9 +194,6 @@ export class JQueryEvents {
 		} else {
 			area.AddUnit(unitPos);
 		}
-
-		area.UpdateStatistics();
-		area.Draw();
 	}
 
 	private canvasOnMouseUp = (event: JQuery.MouseUpEvent) => {

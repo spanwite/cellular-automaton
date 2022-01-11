@@ -255,6 +255,8 @@ export class Area {
 	}
 
 	public Draw(): void {
+		this.canvas.Clear();
+
 		for (const unit of this.aliveUnits) {
 			this.canvas.DrawUnit(unit);
 			this.cells[unit.Y][unit.X] = true;
@@ -264,7 +266,6 @@ export class Area {
 			this.cells[unit.Y][unit.X] = true;
 		}
 		for (const unit of this.diedUnits) {
-			this.canvas.ClearUnit(unit);
 			this.cells[unit.Y][unit.X] = false;
 		}
 
