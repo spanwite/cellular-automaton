@@ -1,5 +1,3 @@
-'use strict';
-
 const {src, dest} = require('gulp');
 const gulp = require('gulp');
 const rename = require('gulp-rename');
@@ -43,8 +41,6 @@ const path = {
 	},
 	clean: './' + distPath,
 };
-
-/* Tasks */
 
 function serve() {
 	browserSync.init({
@@ -170,10 +166,8 @@ function js(cb: Function) {
 					if (err) {
 						console.log(stats.toString());
 					}
-					setTimeout(() => {
-						browserSync.reload();
-						cb();
-					}, 100);
+					browserSync.reload();
+					cb();
 				}
 			)
 		)
@@ -218,10 +212,8 @@ function jsWatch(cb: Function) {
 					if (err) {
 						console.log(stats.toString());
 					}
-					setTimeout(() => {
-						browserSync.reload();
-						cb();
-					}, 100);
+					browserSync.reload();
+					cb();
 				}
 			)
 		)
@@ -258,7 +250,7 @@ function watchFiles() {
 	gulp.watch([path.watch.css], function cssWatchWrapper(cb: Function) {
 		setTimeout(() => {
 			cssWatch(cb);
-		}, 300);
+		}, 100);
 	});
 	gulp.watch([path.watch.js], jsWatch);
 	gulp.watch([path.watch.images], images);
@@ -269,7 +261,6 @@ function watchFiles() {
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts, media));
 const watch = gulp.parallel(build, watchFiles, serve);
 
-/* Exports Tasks */
 exports.html = html;
 exports.css = css;
 exports.js = js;

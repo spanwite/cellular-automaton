@@ -126,6 +126,14 @@ input[type=range] {
 			box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 		}
 	}
+
+	&__text {
+		position: relative;
+		bottom: 1px;
+		left: 6px;
+		font-size: 16px;
+		letter-spacing: 0.1em;
+	}
 }
 
 .input-checkbox input {
@@ -187,25 +195,4 @@ input[type=range] {
 	.fa-times {
 		display: none;
 	}
-}
-
-.other__checkbox {
-	margin-left: 30px;
-}
-
-.checkbox__text {
-	position: relative;
-	bottom: 1px;
-	left: 6px;
-	font-size: 16px;
-	letter-spacing: 0.1em;
-}
-
-/* Group */
-.group__input {
-	padding-left: 30px;
-}
-
-.group__input_checkbox {
-	margin-bottom: 12px;
 }

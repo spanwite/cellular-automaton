@@ -16,6 +16,7 @@ body {
 *::before,
 *::after {
 	box-sizing: border-box;
+	user-select: none;
 }
 
 html {
@@ -51,10 +52,6 @@ h4 {
 	letter-spacing: .1em;
 }
 
-* {
-	user-select: none;
-}
-
 .container {
 	width: 100%;
 	max-width: 1280px;
@@ -68,15 +65,7 @@ h4 {
 	background-color: var(--settings-color);
 }
 
-.section__group_area-size {
-
-	.buttons-row {
-		margin-left: 30px;
-
-		button {
-			letter-spacing: .3em;
-			padding: 4px 16px;
-		}
-	}
+.section-group > *:not(.section-group__title) {
+	padding-left: 30px;
 }
 

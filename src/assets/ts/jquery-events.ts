@@ -18,25 +18,25 @@ export class JQueryEvents {
 
 	private $canvas: JQuery = $('#canvas');
 
-	private $buttonStart: JQuery = $('.main__group-button_start');
-	private $buttonClear: JQuery = $('.main__group-button_clear');
-	private $buttonTheme: JQuery = $('.main__group-button_theme');
-	private $buttonFullscreen: JQuery = $('.area-size__button_fullscreen');
-	private $buttonHalfscreen: JQuery = $('.area-size__button_halfscreen');
-	private $buttonSave: JQuery = $('.configs__group-button_save');
-	private $buttonLoad: JQuery = $('.configs__group-button_load');
-	private $buttonRandom: JQuery = $('.configs__group-button_random');
+	private $buttonStart: JQuery = $('.section-group_app__button_start');
+	private $buttonClear: JQuery = $('.section-group_app__button_clear');
+	private $buttonTheme: JQuery = $('.section-group_theme__button_theme');
+	private $buttonFullscreen: JQuery = $('.section-group_area__button_fullscreen');
+	private $buttonHalfscreen: JQuery = $('.section-group_area__button_halfscreen');
+	private $buttonSave: JQuery = $('.subgroup_main__button_save');
+	private $buttonLoad: JQuery = $('.subgroup_main__button_load');
+	private $buttonRandomize: JQuery = $('.subgroup_random__button_randomize');
 
-	private $sliderAppSteps: JQuery = $('.input-range_steps__input');
-	private $sliderCellSize: JQuery = $('.input-range_cell-size__input');
-	private $sliderCellMargin: JQuery = $('.input-range_cell-margin__input');
+	private $sliderCellSize: JQuery = $('.input-range__input_cell-size');
+	private $sliderCellMargin: JQuery = $('.input-range__input_cell-margin');
+	private $sliderAppSteps: JQuery = $('.input-range__input_app-steps');
 
-	private $valueAppSteps: JQuery = $('.input-range_steps__value');
-	private $valueCellSize: JQuery = $('.input-range_cell-size__value');
-	private $valueCellMargin: JQuery = $('.input-range_cell-margin__value');
+	private $valueCellSize: JQuery = $('.input-range__value_cell-size');
+	private $valueCellMargin: JQuery = $('.input-range__value_cell-margin');
+	private $valueAppSteps: JQuery = $('.input-range__value_app-steps');
 
-	private $checkboxSpace: JQuery = $('.input-checkbox_space__input');
-	private $checkboxRainbowUnits: JQuery = $('.input-checkbox_rainbow__input');
+	private $checkboxSpace: JQuery = $('.input-checkbox__input_space');
+	private $checkboxRainbowUnits: JQuery = $('.input-checkbox__input_rainbow-units');
 
 	constructor(
 		private readonly app: App
@@ -74,8 +74,8 @@ export class JQueryEvents {
 				text: 'The configuration is copied to the clipboard',
 				color: 'var(--text-color)',
 				background: 'var(--settings-color)'
-			});
-		}, (error) => {
+			}).then();
+		}, () => {
 			SweetAlert.fire({
 				title: 'Error.',
 				icon: "error",
@@ -83,7 +83,7 @@ export class JQueryEvents {
 				text: 'Something went wrong',
 				color: 'var(--text-color)',
 				background: 'var(--settings-color)'
-			});
+			}).then();
 		});
 	}
 
@@ -92,7 +92,7 @@ export class JQueryEvents {
 		this.area.LoadConfig(data).then();
 	}
 
-	private buttonRandomOnClick = () => {
+	private buttonRandomizeOnClick = () => {
 		this.area.RandomizeUnits();
 	}
 
@@ -227,7 +227,7 @@ export class JQueryEvents {
 	}
 
 	private initPresets(): void {
-		$('.configs__group-button_gosper').on('click', () => {
+		$('.subgroup_guns__button_gosper').on('click', () => {
 			const config: object = [
 				{"X": 31, "Y": 8}, {"X": 29, "Y": 9}, {"X": 31, "Y": 9}, {"X": 19, "Y": 10},
 				{"X": 20, "Y": 10}, {"X": 27, "Y": 10}, {"X": 28, "Y": 10}, {"X": 41, "Y": 10},
@@ -242,7 +242,7 @@ export class JQueryEvents {
 			this.area.LoadConfig(config).then();
 		});
 
-		$('.configs__group-button_gosper-eater').on('click', () => {
+		$('.subgroup_guns__button_gosper-eater').on('click', () => {
 			const config: object = [
 				{"X": 67, "Y": 19}, {"X": 65, "Y": 20}, {"X": 67, "Y": 20}, {"X": 55, "Y": 21},
 				{"X": 56, "Y": 21}, {"X": 63, "Y": 21}, {"X": 64, "Y": 21}, {"X": 77, "Y": 21},
@@ -260,7 +260,7 @@ export class JQueryEvents {
 			this.area.LoadConfig(config).then();
 		})
 
-		$('.configs__group-button_middleweight').on('click', () => {
+		$('.subgroup_spaceships__button_middleweight').on('click', () => {
 			const config: object = [
 				{"X": 61, "Y": 19}, {"X": 62, "Y": 19}, {"X": 63, "Y": 19}, {"X": 60, "Y": 20},
 				{"X": 61, "Y": 20}, {"X": 62, "Y": 20}, {"X": 63, "Y": 20}, {"X": 64, "Y": 20},
@@ -270,7 +270,7 @@ export class JQueryEvents {
 			this.area.LoadConfig(config, 'right').then();
 		});
 
-		$('.configs__group-button_weekender').on('click', () => {
+		$('.subgroup_spaceships__button_weekender').on('click', () => {
 			const config: object = [
 				{"X": 51, "Y": 16}, {"X": 64, "Y": 16}, {"X": 51, "Y": 17}, {"X": 64, "Y": 17},
 				{"X": 50, "Y": 18}, {"X": 52, "Y": 18}, {"X": 63, "Y": 18}, {"X": 65, "Y": 18},
@@ -285,7 +285,7 @@ export class JQueryEvents {
 			this.area.LoadConfig(config, 'bot').then();
 		});
 
-		$('.configs__group-button_pre-pulsar').on('click', () => {
+		$('.subgroup_spaceships__button_pre-pulsar').on('click', () => {
 			const config: object = [
 				{"X": 34, "Y": 1}, {"X": 35, "Y": 1}, {"X": 36, "Y": 1}, {"X": 47, "Y": 1},
 				{"X": 48, "Y": 1}, {"X": 49, "Y": 1}, {"X": 73, "Y": 1}, {"X": 74, "Y": 1},
@@ -454,7 +454,7 @@ export class JQueryEvents {
 			this.$buttonSave.on('click', this.buttonSaveOnClick);
 			this.$buttonLoad.on('click', this.buttonLoadOnClick);
 
-			this.$buttonRandom.on('click', this.buttonRandomOnClick);
+			this.$buttonRandomize.on('click', this.buttonRandomizeOnClick);
 
 			this.$sliderAppSteps.on('input', this.sliderAppStepsOnInput);
 

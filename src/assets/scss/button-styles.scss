@@ -1,14 +1,17 @@
 .buttons-row {
 	display: flex;
 	flex-wrap: wrap;
+
+	button:not(:last-child) {
+		margin-right: 5px;
+	}
 }
 
 button {
 	font-family: Gilroy-Regular, Verdana, sans-serif;
 	font-size: 18px;
-	margin-right: 5px;
+	padding: 5px 35px;
 	margin-bottom: 10px;
-	padding: 6px 35px;
 	cursor: pointer;
 	transition: all .4s;
 	letter-spacing: .5em;

@@ -7,7 +7,7 @@ export class App {
 	private isRunning: boolean = false;
 	private allowTick: boolean = false;
 
-	private $buttonStart: JQuery = $(".main__group-button_start");
+	private $buttonStart: JQuery = $(".section-group_app__button_start");
 
 	private stepsPerSecond: number = 30;
 	private lastTime: number = 0;
