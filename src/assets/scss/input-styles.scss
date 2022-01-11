@@ -3,10 +3,10 @@ input[type=range] {
 	width: 100%;
 	max-width: 300px;
 	margin: 0 0 15px 0;
-	border-radius: 20px;
-	-webkit-appearance: none;
 	transition: all .4s;
 	opacity: .7;
+	border-radius: 20px;
+	-webkit-appearance: none;
 
 	&:hover {
 		opacity: 1;
@@ -24,8 +24,8 @@ input[type=range] {
 		width: 100%;
 		height: 8px;
 		cursor: pointer;
-		border-radius: 20px;
 		transition: background-color .4s;
+		border-radius: 20px;
 		background-color: var(--slider-track-color);
 
 		&:focus {
@@ -36,18 +36,20 @@ input[type=range] {
 
 	&::-moz-range-track {
 		width: 100%;
-		height: 8.4px;
+		height: 8px;
 		cursor: pointer;
 		transition: background-color .4s;
+		border-radius: 20px;
 		background-color: var(--slider-track-color);
 	}
 
 	&::-ms-track {
 		width: 100%;
-		height: 8.4px;
+		height: 8px;
 		cursor: pointer;
-		color: transparent;
-		background-color: transparent;
+		transition: background-color .4s;
+		border-radius: 20px;
+		background-color: var(--slider-track-color);
 	}
 
 	&::-webkit-slider-thumb {
@@ -62,21 +64,25 @@ input[type=range] {
 	}
 
 	&::-moz-range-thumb {
-		width: 20px;
-		height: 20px;
+		width: 18px;
+		height: 18px;
+		margin-top: -5px;
 		cursor: pointer;
+		transition: background-color .4s, box-shadow .4s;
 		border-radius: 50%;
-		transition: background-color .4s;
 		background-color: var(--slider-thumb-color);
+		-webkit-appearance: none;
 	}
 
 	&::-ms-thumb {
-		width: 20px;
-		height: 20px;
+		width: 18px;
+		height: 18px;
+		margin-top: -5px;
 		cursor: pointer;
+		transition: background-color .4s, box-shadow .4s;
 		border-radius: 50%;
-		transition: background-color .4s;
 		background-color: var(--slider-thumb-color);
+		-webkit-appearance: none;
 	}
 
 	&::-ms-fill-lower {
@@ -128,10 +134,10 @@ input[type=range] {
 	}
 
 	&__text {
+		font-size: 16px;
 		position: relative;
 		bottom: 1px;
 		left: 6px;
-		font-size: 16px;
 		letter-spacing: 0.1em;
 	}
 }

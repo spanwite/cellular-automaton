@@ -10,6 +10,7 @@ const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
 const removeComments = require('gulp-strip-css-comments');
 const cleanCSS = require('gulp-clean-css');
+const autoprefixer = require('gulp-autoprefixer');
 
 const srcPath = './src/';
 const distPath = './docs/';
@@ -87,6 +88,7 @@ function css(cb: Function) {
 			})
 		)
 		.pipe(removeComments())
+		.pipe(autoprefixer())
 		.pipe(cleanCSS())
 		.pipe(
 			rename({
