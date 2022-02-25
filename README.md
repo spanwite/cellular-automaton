@@ -1,2 +1,2 @@
 ﻿# The Game of Life
-* [Link](https://nerq1337.github.io/cellular-automaton)
+* [Link to the Game](https://nerq1337.github.io/cellular-automaton)
