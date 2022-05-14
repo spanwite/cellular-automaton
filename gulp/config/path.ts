@@ -1,4 +1,4 @@
-export const distPath = './root/';
+export const distPath = './docs/';
 export const srcPath = './src/';
 
 export const path = {
