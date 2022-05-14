@@ -13,7 +13,7 @@ export const path = {
 		html: srcPath + 'index.html',
 		scss: srcPath + 'assets/scss/style.scss',
 		ts: srcPath + 'assets/ts/app.ts',
-		images: srcPath + 'assets/images/**/*.{jpg,jpeg,png,gif,webp}',
+		images: srcPath + 'assets/images/**/*.{jpg,jpeg,png,gif,webp,ico}',
 		svg: srcPath + 'assets/images/**/*.svg',
 		root: srcPath,
 	},
