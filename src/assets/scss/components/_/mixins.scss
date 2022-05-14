@@ -1,0 +1,17 @@
+@mixin adaptive-font($maxFontSize, $minFontSize) {
+	font-size: #{$maxFontSize + px};
+
+	@media (max-width: #{$container-width + px}) {
+		$diff: $maxFontSize - $minFontSize;
+		$maxWidth: $container-width - 320;
+		font-size: calc(#{$minFontSize + px} + #{$diff} * ((100vw - 320px) / #{$maxWidth}));
+	}
+}
+
+@mixin hover-media() {
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			@content;
+		}
+	}
+}

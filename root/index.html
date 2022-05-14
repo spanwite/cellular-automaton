@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Main -->
+<meta charset="UTF-8">
+<link rel="stylesheet" href="assets/css/style.min.css">
+<title>Cellular Automaton</title>
+
+<!-- Useful meta tags -->
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<meta name="google" content="notranslate">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="Cellular Automaton">
+</head>
+<body>
+<div class="wrapper">
+	<canvas id="canvas"></canvas>
+
+	<main class="page">
+		<section class="settings">
+			<div class="container settings__container">
+				<div class="settings__left">
+					<article class="article">
+						<h2 class="article__title">Main</h2>
+
+<ul class="article__groups">
+    <li class="article-group">
+        <h3 class="article-group__title">Game</h3>
+
+        <div class="buttons-row">
+            <button class="button_start">start</button>
+            <button class="button_clear">clear</button>
+        </div>
+    </li>
+
+    <li class="article-group">
+        <h3 class="article-group__title">Theme</h3>
+
+        <div class="buttons-row">
+            <button class="button_theme"></button>
+        </div>
+    </li>
+</ul>
+					</article>
+
+					<article class="article">
+						<h2 class="article__title">Stats</h2>
+
+<div class="article__groups">
+	<div class="article-group">
+		<h3 class="article-group__title">Cells</h3>
+
+		<ul class="cell-stats">
+			<li class="cell-stats__item">
+				<span class="cell-stats__label">born:</span>
+				<span class="cell-stats__value cell-stats__value_born">0</span>
+			</li>
+			<li class="cell-stats__item">
+				<span class="cell-stats__label">died:</span>
+				<span class="cell-stats__value cell-stats__value_died">0</span>
+			</li>
+			<li class="cell-stats__item">
+				<span class="cell-stats__label">alive:</span>
+				<span class="cell-stats__value cell-stats__value_alive">0</span>
+			</li>
+		</ul>
+	</div>
+</div>
+					</article>
+
+					<article class="article">
+						<h2 class="article__title">Size</h2>
+
+<ul class="article__groups">
+	<li class="article-group">
+		<h3 class="article-group__title">Cell</h3>
+
+		<div class="article-group__inputs">
+			<label class="input-range article-group__input-range">
+				<span class="input-range__label">size</span>
+				<br>
+				<input class="input-range__input input_cell-size"
+					   type="range" min="1" max="30" value="20">
+				<span class="input-range__value value_cell-size">20</span>
+			</label>
+
+			<label class="input-range">
+				<span class="input-range__label">margin</span>
+				<br>
+				<input class="input-range__input input_cell-margin"
+					   type="range" min="0" max="10" value="1">
+				<span class="input-range__value value_cell-margin">1</span>
+			</label>
+		</div>
+	</li>
+
+	<li class="article-group">
+		<h3 class="article-group__title">Area</h3>
+
+		<div class="buttons-row">
+			<button class="button_full-screen">full</button>
+			<button class="button_half-screen">4 / 5</button>
+		</div>
+	</li>
+</ul>
+					</article>
+				</div>
+
+				<div class="settings__right">
+					<article class="article">
+						<h2 class="article__title">Generation</h2>
+
+<ul class="article__groups">
+	<li class="article-group">
+		<h3 class="article-group__title">Rules</h3>
+
+		<ul class="article-group__inputs">
+			<li class="article-group__input">
+				<label class="input-checkbox article-group__input-checkbox">
+					<input class="input-checkbox__input input_rule" data-rule="323"
+						   type="checkbox" checked>
+					<span class="input-checkbox__slider"></span>
+				</label>
+				<span class="input-checkbox__label">B3/S23</span>
+			</li>
+
+			<li class="article-group__input">
+				<label class="input-checkbox article-group__input-checkbox">
+					<input class="input-checkbox__input input_rule" data-rule="30"
+						   type="checkbox">
+					<span class="input-checkbox__slider"></span>
+				</label>
+				<span class="input-checkbox__label">30</span>
+			</li>
+
+			<li class="article-group__input">
+				<label class="input-checkbox">
+					<input class="input-checkbox__input input_rule" data-rule="90"
+						   type="checkbox">
+					<span class="input-checkbox__slider"></span>
+				</label>
+
+				<span class="input-checkbox__label">90</span>
+			</li>
+
+			<li class="article-group__input">
+				<label class="input-checkbox">
+					<input class="input-checkbox__input input_rule" data-rule="110"
+						   type="checkbox">
+					<span class="input-checkbox__slider"></span>
+				</label>
+				<span class="input-checkbox__label">110</span>
+			</li>
+
+			<li class="article-group__input">
+				<label class="input-checkbox">
+					<input class="input-checkbox__input input_rule" data-rule="184"
+						   type="checkbox">
+					<span class="input-checkbox__slider"></span>
+				</label>
+				<span class="input-checkbox__label">184</span>
+			</li>
+		</ul>
+	</li>
+
+	<li class="article-group">
+		<h3 class="article-group__title">Config's</h3>
+
+		<ul class="article-group__subgroups">
+			<li class="article-subgroup">
+				<h4 class="article-subgroup__title">Main</h4>
+
+				<div class="buttons-row">
+					<button class="small button_config-save">save</button>
+					<button class="small button_config-load">load</button>
+				</div>
+			</li>
+
+			<li class="article-subgroup">
+				<h4 class="article-subgroup__title">Random</h4>
+
+				<div class="buttons-row">
+					<button class="small button_randomize">randomize</button>
+				</div>
+			</li>
+
+			<li class="article-subgroup">
+				<h4 class="article-subgroup__title">Guns</h4>
+
+				<div class="buttons-row">
+					<button class="small button_gosper">gosper</button>
+					<button class="small button_gosper-eater">gosper + eater</button>
+				</div>
+			</li>
+
+			<li class="article-subgroup">
+				<h4 class="article-subgroup__title">Spaceships</h4>
+
+				<div class="buttons-row">
+					<button class="small button_middleweight">middleweight</button>
+					<button class="small button_weekender">weekender</button>
+					<button class="small button_pre-pulsar">pre-pulsar</button>
+				</div>
+			</li>
+		</ul>
+	</li>
+</ul>
+					</article>
+
+					<article class="article">
+						<h2 class="article__title">Other</h2>
+
+<ul class="article__groups">
+	<li class="article-group">
+		<h3 class="article-group__title">Game</h3>
+
+		<label class="input-range article-group__input-range">
+			<span class="input-range__label">steps/second</span>
+			<br>
+			<input class="input-range__input input_app-steps"
+				   type="range" min="1" max="150" value="100">
+			<span class="input-range__value value_app-steps">100</span>
+		</label>
+	</li>
+
+	<li class="article-group">
+		<h3 class="article-group__title">Area</h3>
+
+		<ul class="article-group__inputs">
+			<li class="article-group__input">
+				<label class="input-checkbox">
+					<input class="input-checkbox__input input_space"
+						   type="checkbox">
+					<span class="input-checkbox__slider"></span>
+				</label>
+				<span class="input-checkbox__label">looping space</span>
+			</li>
+
+			<li class="article-group__input">
+				<label class="input-checkbox">
+					<input class="input-checkbox__input input_rainbow-units"
+						   type="checkbox">
+					<span class="input-checkbox__slider"></span>
+				</label>
+				<span class="input-checkbox__label">rainbow units</span>
+			</li>
+		</ul>
+	</li>
+</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="footer__content">
+    <span class="footer__text">Made By</span>
+    <a class="footer__link" href="https://github.com/Nerq1337" target="__blank">Nerq1337</a>
+</div>
+	</footer>
+</div>
+
+<script src="assets/js/app.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+.cell-stats {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+
+	&__label {
+		font-size: 18px;
+		letter-spacing: .02em;
+	}
+
+	&__value {
+		font-weight: 600;
+		position: relative;
+		top: 1px;
+		transition: color .4s;
+
+		&_born {
+			left: 2px;
+			color: var(--born-text-color);
+			text-shadow: 0 0 15px rgba(101, 227, 99, 0.5);
+		}
+
+		&_died {
+			left: 3px;
+			color: var(--died-text-color);
+			text-shadow: 0 0 15px rgba(227, 99, 99, 0.5);
+		}
+
+		&_alive {
+			left: 1px;
+			color: var(--alive-text-color);
+			text-shadow: 0 0 15px rgba(99, 227, 221, 0.5);
+		}
+	}
+}

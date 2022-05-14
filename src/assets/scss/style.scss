@@ -1,9 +1,15 @@
-@import './fonts';
-@import './themes';
+@import 'components/_/reset';
+@import 'components/_/fonts';
+@import 'components/_/mixins';
 
-@import './basic';
-@import './sections';
-@import './input-styles';
+@import 'components/themes';
+@import 'components/basic';
 
-@import './button-styles';
-@import './media';
+@import 'components/buttons';
+@import 'components/inputs/checkbox';
+@import 'components/inputs/range';
+
+@import 'components/blocks/settings';
+@import 'components/blocks/article';
+@import 'components/blocks/cell-stats';
+@import 'components/blocks/footer';

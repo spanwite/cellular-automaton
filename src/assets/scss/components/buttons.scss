@@ -1,0 +1,60 @@
+.buttons-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 6px;
+}
+
+button {
+	font-size: 18px;
+	padding: 6px 35px;
+	cursor: pointer;
+	transition: all .4s;
+	letter-spacing: .3em;
+	opacity: .7;
+	color: var(--button-text-color);
+	border: 3px solid var(--button-border-color);
+	outline: none;
+	background-color: transparent;
+
+	@media (max-width: 425px) {
+		padding: 8px 35px;
+		flex: 1 1 auto;
+	}
+
+	@include hover-media() {
+		letter-spacing: .8em;
+		opacity: 1;
+		box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+	}
+
+	&:active {
+		transform: scale(.95);
+	}
+}
+
+button.medium {
+	padding: 6px 18px;
+	letter-spacing: .3em;
+
+	@media (max-width: 768px) {
+		padding: 8px 18px;
+	}
+
+	@include hover-media() {
+		letter-spacing: .5em;
+	}
+}
+
+button.small {
+	font-size: 16px;
+	padding: 4px 18px;
+	letter-spacing: .24em;
+
+	@media (max-width: 768px) {
+		padding: 6px 18px;
+	}
+
+	@include hover-media() {
+		letter-spacing: .5em;
+	}
+}

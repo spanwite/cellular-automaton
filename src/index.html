@@ -1,207 +1,49 @@
----
-layout: default
-title: Cellular Automaton
----
-<div class="canvas-wrapper">
-    <canvas id="canvas"></canvas>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@@include('partials/head.html', {
+	'title':'Cellular Automaton'
+	})
+</head>
+<body>
+<div class="wrapper">
+	<canvas id="canvas"></canvas>
+
+	<main class="page">
+		<section class="settings">
+			<div class="container settings__container">
+				<div class="settings__left">
+					<article class="article">
+						@@include('partials/sections/main.html', {})
+					</article>
+
+					<article class="article">
+						@@include('partials/sections/stats.html', {})
+					</article>
+
+					<article class="article">
+						@@include('partials/sections/size.html', {})
+					</article>
+				</div>
+
+				<div class="settings__right">
+					<article class="article">
+						@@include('partials/sections/generation.html', {})
+					</article>
+
+					<article class="article">
+						@@include('partials/sections/other.html', {})
+					</article>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		@@include('partials/sections/footer.html', {})
+	</footer>
 </div>
 
-<div class="settings">
-    <h1 class="settings__title">Settings</h1>
-
-    <section class="section section_main">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">Main</h2>
-            </div>
-
-            <div class="section__body">
-                <div class="section-group section-group_app">
-                    <h3 class="section-group__title">App:</h3>
-
-                    <div class="buttons-row section_main__buttons-row">
-                        <button class="section-group__button section-group_app__button_start">start</button>
-                        <button class="section-group__button section-group_app__button_clear">clear</button>
-                    </div>
-                </div>
-
-                <div class="section-group section-group_main">
-                    <h3 class="section-group__title">Theme</h3>
-
-                    <div class="buttons-row section_main__buttons-row">
-                        <button class="section-group__button section-group_theme__button_theme"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section_info">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">Statistics</h2>
-            </div>
-
-            <div class="section__body">
-                <div class="section-group section-group__cells">
-                    <h3 class="section-group__title">Cells:</h3>
-
-                    <div class="section-group__cells-statistics">
-                        <div class="statistics-item">
-                            <span class="statistics-item__text">born:</span>
-                            <span class="statistics-item__value statistics-item__value_born">0</span>
-                        </div>
-                        <div class="statistics-item">
-                            <span class="statistics-item__text">died:</span>
-                            <span class="statistics-item__value statistics-item__value_died">0</span>
-                        </div>
-                        <div class="statistics-item">
-                            <span class="statistics-item__text">alive:</span>
-                            <span class="statistics-item__value statistics-item__value_alive">0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section_size">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">Size</h2>
-            </div>
-
-            <div class="section__body">
-                <div class="section-group section-group__cell">
-                    <h3 class="section-group__title">Cell:</h3>
-
-                    <div class="section-group__input section-group__input-range">
-                        <label class="input-range input-range_size">
-                            <span class="input-range__label">size</span>
-                            <br>
-                            <input class="input-range__input input-range__input_cell-size"
-                                   type="range" min="1" max="30" value="20">
-                            <span class="input-range__value input-range__value_cell-size">20</span>
-                        </label>
-                    </div>
-
-                    <div class="section-group__input section-group__input-range">
-                        <label class="input-range input-range_margin">
-                            <span class="input-range__label">margin</span>
-                            <br>
-                            <input class="input-range__input input-range__input_cell-margin"
-                                   type="range" min="0" max="10" value="1">
-                            <span class="input-range__value input-range__value_cell-margin">1</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="section-group section-group_area">
-                    <h3 class="section-group__title">Area:</h3>
-
-                    <div class="buttons-row section-group_area__buttons-row">
-                        <button class="section-group_area__button_fullscreen">fullscreen</button>
-                        <button class="section-group_area__button_halfscreen">halfscreen</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section_generation">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">Generation</h2>
-            </div>
-
-            <div class="section__body">
-                <div class="section-group section-group_configs">
-                    <h3 class="section-group__title">Config's:</h3>
-
-                    <div class="section-subgroup section-subgroup_main">
-                        <h4 class="section-subgroup__title">Main:</h4>
-
-                        <div class="buttons-row section-group_configs__buttons-row">
-                            <button class="subgroup_main__button_save">save</button>
-                            <button class="subgroup_main__button_load">load</button>
-                        </div>
-                    </div>
-
-                    <div class="section-subgroup section-subgroup_random">
-                        <h4 class="section-subgroup__title">Random:</h4>
-
-                        <div class="buttons-row section-group_configs__buttons-row">
-                            <button class="subgroup_random__button_randomize">randomize</button>
-                        </div>
-                    </div>
-
-                    <div class="section-subgroup section-subgroup_guns">
-                        <h4 class="section-subgroup__title">Guns:</h4>
-
-                        <div class="buttons-row section-group_configs__buttons-row">
-                            <button class="subgroup_guns__button_gosper">gosper</button>
-                            <button class="subgroup_guns__button_gosper-eater">gosper + eater</button>
-                        </div>
-                    </div>
-
-                    <div class="section-subgroup section-subgroup_spaceships">
-                        <h4 class="section-subgroup__title">Spaceships:</h4>
-
-                        <div class="buttons-row section-group_configs__buttons-row">
-                            <button class="subgroup_spaceships__button_middleweight">middleweight</button>
-                            <button class="subgroup_spaceships__button_weekender">weekender</button>
-                            <button class="subgroup_spaceships__button_pre-pulsar">pre-pulsar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section_other">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">Other</h2>
-            </div>
-
-            <div class="section__body">
-                <div class="section-group section-group_app">
-                    <h3 class="section-group__title">App:</h3>
-
-                    <div class="section-group__input section-group__input-range">
-                        <label class="input-range input-range_steps">
-                            <span class="input-range__label">steps/second</span>
-                            <br>
-                            <input class="input-range__input input-range__input_app-steps"
-                                   type="range" min="1" max="60" value="30">
-                            <span class="input-range__value input-range__value_app-steps">30</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="section-group section-group_area">
-                    <h3 class="section-group__title">Area:</h3>
-
-                    <div class="section-group__input section-group__input-checkbox">
-                        <label class="input-checkbox">
-                            <input class="input-checkbox__input input-checkbox__input_space"
-                                   type="checkbox">
-                            <span class="input-checkbox__slider"></span>
-                        </label>
-                        <span class="input-checkbox__text">looping space</span>
-                    </div>
-
-                    <div class="section-group__input section-group__input-checkbox">
-                        <label class="input-checkbox">
-                            <input class="input-checkbox__input input-checkbox__input_rainbow-units"
-                                   type="checkbox">
-                            <span class="input-checkbox__slider"></span>
-                        </label>
-                        <span class="input-checkbox__text">rainbow units</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</div>
+<script src="assets/js/app.min.js"></script>
+</body>
+</html>
